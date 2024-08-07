@@ -5,14 +5,13 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
- 
   "scripts": {
-    "build": "yarn seed && nest build",
+    "build": "yarn prisma migrate deploy && yarn seed && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "yarn seed && node dist/src/main",
+    "start:prod": "yarn prisma migrate deploy && yarn seed && node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
